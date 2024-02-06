@@ -1,3 +1,4 @@
 # branch-protector
 
-Quick action to check a branch name before merging
+Quick action to check a source branch name before merging
+
