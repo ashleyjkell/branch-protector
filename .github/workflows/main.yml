@@ -1,0 +1,16 @@
+name: Source Branch Checker
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-branch-name: 
+    runs-on: alpine:latest
+    steps:
+      - name: Check if we're merging from a feature branch
+        run: |
+          if [[ ! "${{ github.head_ref }}" =~ ^feature/ ]]; then
+            echo "Branch name does not begin with 'feature/'. Merge is blocked, please review the branching strategy."
+            exit 1
+          fi
